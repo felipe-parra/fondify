@@ -1,0 +1,22 @@
+<h1>{{title}}</h1>
+
+{{#if err}}
+<h2 style="color: red">{{err}}</h2>
+{{/if}}
+
+<form action="{{action}}" method="POST">
+  {{#if sign}}
+  <wired-input type="text" name="name" placeholder="Tu nombre" onchange="document.getElementById('name').value = this.value"></wired-input>
+  <input type="hidden" id="name" name="name">
+  {{/if}}
+
+  <wired-input type="email" name="email" placeholder="Tu email aquí" onchange="document.getElementById('email').value = this.value"></wired-input>
+  <input type="hidden" id="email" name="email">
+
+  <wired-input type="password" name="password" placeholder="Y tu contraseña acá" onchange="document.getElementById('password').value = this.value"></wired-input>
+  <input type="hidden" id="password" name="password">
+  
+  <wired-button class="red" onclick="document.forms[0].submit()">{{submit}}</wired-button>
+</form>
+
+

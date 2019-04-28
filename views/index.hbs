@@ -1,0 +1,8 @@
+<h1 class="title">{{title}}</h1>
+{{#if loggedUser}}
+<h2>¡Bienvendo, {{loggedUser.name}}!</h2>
+{{/if }}
+<form action="">
+  <wired-input type="text" name="plate" placeholder="Tienes antojo de..."></wired-input>
+  <wired-button elevation="3" class="red">Veamos quién lo preparó hoy</wired-button>
+</form>
