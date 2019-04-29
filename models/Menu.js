@@ -5,13 +5,12 @@ const menuSchema  = new Schema ({
   name: String,
   firstTime: String,
   secondTime: String,
-  Main: [String],
+  main: [String],
   drink: String,
   fonda: {
     type: Schema.Types.ObjectId,
     ref: 'Fonda'
   }
-
 })
 
 module.exports = mongoose.model('Menu', menuSchema)
