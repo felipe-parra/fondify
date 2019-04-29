@@ -5,7 +5,7 @@ const { isLogged } = require('../helpers/middlewares')
 
 router.get('/signup', (req, res, next) => {
   const config = {
-    title: 'Sign up 🍴🥣',
+    title: 'Sign up',
     action: '/signup',
     submit: '¡Registrate!',
     sign: true
@@ -19,7 +19,7 @@ router.post('/signup', (req, res, next) => {
   if(name ==='' || email === '' || password === '') return res.render('auth/signup', 
   {
     err: 'Tu nombre, tu email o tu password no pueden estar vacios. 😞', 
-    title: 'Sign up 🍴🥣',
+    title: 'Sign up',
     action: '/signup',
     submit: '¡Registrate!',
     sign: true
@@ -43,7 +43,7 @@ router.post('/signup', (req, res, next) => {
 
 router.get('/login', (req, res, next) => {
   const config = {
-    title: 'Login 🍴🥣',
+    title: 'Login',
     action: '/login',
     submit: '¡Entra ya!',
   }
@@ -56,7 +56,7 @@ router.post('/login', (req, res, next) => {
     if(!user) return res.render('auth/signup', 
     {
       err: 'Sorry! No estás autorizado a entrar.',
-      title: 'Login 🍴🥣', 
+      title: 'Login', 
       action:'/login', 
       submit: '¡Entra ya!'
     })

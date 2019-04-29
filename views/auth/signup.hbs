@@ -1,22 +1,39 @@
-<h1>{{title}}</h1>
+<div class="container">
+  <div class="section">
+    <div class="row">
+      <div class="col s12 offset-m4 m4">
+        <h1>{{title}}</h1>
 
-{{#if err}}
-<h2 style="color: red">{{err}}</h2>
-{{/if}}
+        {{#if err}}
+        <h5 class="deep-orange-text accent-3">{{err}}</h5>
+        {{/if}}
 
-<form action="{{action}}" method="POST">
-  {{#if sign}}
-  <wired-input type="text" name="name" placeholder="Tu nombre" onchange="document.getElementById('name').value = this.value"></wired-input>
-  <input type="hidden" id="name" name="name">
-  {{/if}}
+        <form action="{{action}}" method="POST">
+          {{#if sign}}
+          <p>
+            <wired-input type="text" name="name" placeholder="Tu nombre" onchange="document.getElementById('name').value = this.value"></wired-input>
+            <input type="hidden" id="name" name="name">
+          </p>
+          {{/if}}
 
-  <wired-input type="email" name="email" placeholder="Tu email aquí" onchange="document.getElementById('email').value = this.value"></wired-input>
-  <input type="hidden" id="email" name="email">
+          <p>
+            <wired-input type="email" name="email" placeholder="Tu email aquí" onchange="document.getElementById('email').value = this.value"></wired-input>
+            <input type="hidden" id="email" name="email">
+          </p>
 
-  <wired-input type="password" name="password" placeholder="Y tu contraseña acá" onchange="document.getElementById('password').value = this.value"></wired-input>
-  <input type="hidden" id="password" name="password">
-  
-  <wired-button class="red" onclick="document.forms[0].submit()">{{submit}}</wired-button>
-</form>
+          <p>
+            <wired-input type="password" name="password" placeholder="Tu contraseña acá" onchange="document.getElementById('password').value = this.value"></wired-input>
+            <input type="hidden" id="password" name="password">
+          </p>
+          
+          <p>
+            <wired-button class="color-orange" onclick="document.forms[0].submit()">{{submit}}</wired-button>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 

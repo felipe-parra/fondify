@@ -5,19 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
-  <ul>
-    <li><a href="/">Home |</a></li>
-    <li><a href="/signup">Sign up |</a></li>
-    <li><a href="/login">Login</a></li>
-  </ul>
+  <nav class="black" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo"><img src="images/805201_food.svg" alt="Fondify" width="50" /> Fondify</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a class="modal-trigger" href="#modal1">Modal</a></li>
+        <li><a href="/signup">Sign up</a></li>
+        <li><a href="/login">Login</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="/signup">Sign up</a></li>
+        <li><a href="/login">Log in</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
 
   {{{body}}}
 
+  <footer class="page-footer grey darken-3 white-text">
+    <div class="container">
+    Made with 🧡 at <a class="white-text text-lighten-3" href="http://ironhack.com" target="_blank"> Ironhack</a>
+    </div>
+  </footer>
+
+  <!--Modal Signup-->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Sign up</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+
   <script src="https://unpkg.com/wired-elements@latest/dist/wired-elements.bundled.js"></script>
   <script src="/javascripts/script.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://materializecss.com/templates/starter-template/js/init.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+       $(document).ready(function(){
+       $('.modal').modal();
+      });
+    });
+  </script>
+
+
 </body>
 </html>

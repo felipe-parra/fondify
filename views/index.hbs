@@ -1,8 +1,50 @@
-<h1 class="title">{{title}}</h1>
-{{#if loggedUser}}
-<h2>¡Bienvendo, {{loggedUser.name}}!</h2>
-{{/if }}
-<form action="">
-  <wired-input type="text" name="plate" placeholder="Tienes antojo de..."></wired-input>
-  <wired-button elevation="3" class="red">Veamos quién lo preparó hoy</wired-button>
-</form>
+<div class="section no-pad-bot grey lighten-3">
+  <div class="container">
+    <br><br>
+    <h1 class="header center black-text">{{title}} <img src="images/805201_food.svg" alt="Fondify" width="80" /></h1>
+    {{#if loggedUser}}
+    <div class="row center">
+      <h5 class="header col s12 light">¡Bienvenido, {{loggedUser.name}}!</h5>
+    </div>
+    {{/if}}
+    <div class="row center">
+      <form action="">
+        <wired-input type="text" name="plate" placeholder="Tienes antojo de..."></wired-input>
+        <wired-button elevation="3" class="color-orange">Veamos quién lo preparó hoy</wired-button>
+      </form>
+    </div>
+    <br><br><br><br><br>
+  </div>
+</div>
+<div class="container">
+  <div class="section">
+  <!--   Icon Section   -->
+    <div class="row">
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center orange-text"><i class="material-icons medium">local_dining</i></h2>
+          <h5 class="center">Lorem ipsum dolor.</h5>
+
+          <p class="light">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni voluptas dolores neque minus maxime error aliquam saepe quisquam. Id possimus laborum eius et quisquam sed odit deleniti eos error fugit?</p>
+        </div>
+      </div>
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center orange-text"><i class="material-icons medium">location_on</i></h2>
+          <h5 class="center">Lorem ipsum dolor.</h5>
+
+          <p class="light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, sequi nostrum quo quisquam quos ad earum quae tenetur veniam numquam iusto libero deleniti alias impedit assumenda, eos architecto vero id.</p>
+        </div>
+      </div>
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center orange-text"><i class="material-icons medium">tag_faces</i></h2>
+          <h5 class="center">Lorem ipsum dolor.</h5>
+
+          <p class="light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, sequi nostrum quo quisquam quos ad earum quae tenetur veniam numquam iusto libero deleniti alias impedit assumenda, eos architecto vero id.</p>
+        </div>
+      </div>
+    </div>
+    <br><br>
+  </div>
+</div>
