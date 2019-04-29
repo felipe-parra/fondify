@@ -3,10 +3,14 @@ const { Schema }  = mongoose
 
 const menuSchema  = new Schema ({
   name: String,
-  entradas: [String],
-  platoFuertes: [String],
-  postres: [String],
-  bebidas: [String]
+  firstTime: String,
+  secondTime: String,
+  Main: [String],
+  drink: String,
+  fonda: {
+    type: Schema.Types.ObjectId,
+    ref: 'Fonda'
+  }
 
 })
 
