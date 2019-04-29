@@ -11,6 +11,8 @@ const path         = require('path');
 const passport     = require('./helpers/passport')
 const session      = require('express-session')
 
+// test
+
 mongoose
   .connect(process.env.DB, {useNewUrlParser: true})
   .then(x => {
