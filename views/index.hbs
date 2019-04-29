@@ -8,9 +8,10 @@
     </div>
     {{/if}}
     <div class="row center">
-      <form action="">
-        <wired-input type="text" name="plate" placeholder="Tienes antojo de..."></wired-input>
-        <wired-button elevation="3" class="color-orange">Veamos quién lo preparó hoy</wired-button>
+      <form action="/fondas" method="POST">
+        <wired-input type="text" name="main" placeholder="Tienes antojo de..." onchange="document.getElementById('main').value = this.value"></wired-input>
+        <input type="hidden" id="main" name="main">
+        <wired-button elevation="3" class="color-orange" onclick="document.forms[0].submit()">Veamos quién lo preparó hoy</wired-button>
       </form>
     </div>
     <br><br><br><br><br>

@@ -68,6 +68,8 @@ app.locals.title = 'Fondify';
 
 const index = require('./routes/index');
 const auth = require('./routes/auth')
+const fondas = require('./routes/fonda')
+app.use('/fondas', fondas)
 app.use('/', auth)
 app.use('/', index);
 
