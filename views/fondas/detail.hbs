@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="section">
+    <div class="row">
+      <div class="col s12 m16">
+        <h1>{{name}}</h1>
+        <img src="{{img}}" alt="{{name}}" class="materialboxed" width="650">    
+        <p>{{description}}</p>
+        <p>{{phoneNumber}}</p>
+        <small>{{rank}}</small>
+        <div id="map" style="width: 650px; height: 400px"></div>
+      </div>
+      <div class="col s12 m16">
+        <h2>Nuestro menú de hoy</h2>
+        <div class="card-grid">
+          <wired-card elevation="3">
+            <form action="/reservation" method="POST">
+              <h4>Menu de: {{menu.tiempstamp}}</h4>
+
+              <p>Primer tiempo: </p>
+              <wired-radio name="first" onchange="document.getElementById('first').value = this.value">Consome</wired-radio>
+              <wired-radio name="first" onchange="document.getElementById('first').value = this.value">Sopa</wired-radio>
+              <input type="hidden" name="first">
+
+              <p>Segundo tiempo: </p>
+              <wired-radio name="second" onchange="document.getElementById('second').value = this.value">Arroz</wired-radio>
+              <wired-radio name="second" onchange="document.getElementById('second').value = this.value">Pasta</wired-radio>
+              <input type="hidden" name="second">
+
+              <p>Plato fuerte: </p>
+              <wired-radio name="plate1" onchange="document.getElementById('plate1').value = this.value">Arroz</wired-radio>
+              <wired-radio name="plate2" onchange="document.getElementById('plate2').value = this.value">Pasta</wired-radio>
+              <input type="hidden" name="plate3">
+
+              {{!-- {{#each platillos as |platillo|}}
+                <wired-radio name="plate" onchange="document.getElementById('plate').value = this.value">{{platillo.name}}</wired-radio>
+                <input type="hidden" name="plate">
+              {{/each}} --}}
+              
+              <wired-button class="yellow" onclick="addMenu()">Agrega otro menú</wired-button>
+              <wired-button class="color-orange" onclick="document.forms[0].submit()">reserva tu lugar</wired-button>
+            </form>
+          </wired-card>
+      </div>
+    </div>
+  </div>
+</div>
