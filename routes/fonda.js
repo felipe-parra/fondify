@@ -1,11 +1,19 @@
 const router = require('express').Router()
 const Menu = require('../models/Menu')
 const Fonda = require('../models/Fonda')
-const { isLogged } = require('../helpers/middlewares')
+const { isLogged, validateTypeLog } = require('../helpers/middlewares')
 
-router.get('/dashboard', isLogged, (req,res, next) => {
-  res.render('fondas/dashboard')
+router.get('/dashboard' ,(req,res, next) => {
+  Menu.find()
+    .then(menus => {
+      res.render('fondas/dashboard', { menus })
+    })
+  //   .catch(err => res.send(err))
+    // .then(menus => {
+    //   res.render('fondas/dashboard', {menus})
+    // })
 })
+
 router.post('/', (req, res, next) => {
   const { main } = req.body
   
