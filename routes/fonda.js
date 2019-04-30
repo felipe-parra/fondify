@@ -4,7 +4,6 @@ const Fonda = require('../models/Fonda')
 const Order = require('../models/Order')
 const { isLogged } = require('../helpers/middlewares')
 
-
 router.post('/', (req, res, next) => {
   const { main } = req.body
   
