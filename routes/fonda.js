@@ -3,16 +3,6 @@ const Menu = require('../models/Menu')
 const Fonda = require('../models/Fonda')
 const { isLogged, validateTypeLog } = require('../helpers/middlewares')
 
-router.get('/dashboard' ,(req,res, next) => {
-  Menu.find()
-    .then(menus => {
-      res.render('fondas/dashboard', { menus })
-    })
-  //   .catch(err => res.send(err))
-    // .then(menus => {
-    //   res.render('fondas/dashboard', {menus})
-    // })
-})
 
 router.post('/', (req, res, next) => {
   const { main } = req.body
