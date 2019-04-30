@@ -3,7 +3,9 @@ const Menu = require('../models/Menu')
 const Fonda = require('../models/Fonda')
 const { isLogged } = require('../helpers/middlewares')
 
-
+router.get('/dashboard', isLogged, (req,res, next) => {
+  res.render('fondas/dashboard')
+})
 router.post('/', (req, res, next) => {
   const { main } = req.body
   
