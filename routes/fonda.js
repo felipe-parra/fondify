@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const Menu = require('../models/Menu')
 const Fonda = require('../models/Fonda')
-const { isLogged, validateTypeLog } = require('../helpers/middlewares')
+const { isLogged } = require('../helpers/middlewares')
 
 
 router.post('/', (req, res, next) => {
