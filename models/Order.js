@@ -18,10 +18,11 @@ const orderSchema = new Schema({
   paySelected: {
     type: String,
     enum: ['Paypal','Efectivo','TDC']
-  }
+  },
+  howMany: Number
 },{
   timestamps:true,
   versionKey:false
 })
 
-module.exports = mongoose.model('Order', orrderSchema)
+module.exports = mongoose.model('Order', orderSchema)
