@@ -4,7 +4,17 @@ const Fonda = require('../models/Fonda')
 const Order = require('../models/Order')
 const { isLogged } = require('../helpers/middlewares')
 
-
+router.get('/', (req, res, next) => {
+  // console.log('log');
+  // Fonda.find({ user: req.user._id })
+  //   .then(fonda => {
+  //     const {name} = fonda[0].name
+  //     console.log(fonda[0].name);
+  //     res.render('fondas/dashboard', fonda[0].name)
+  //   })
+  //   .catch(err => res.send(err))
+})
+//order.find({user:})
 router.post('/', (req, res, next) => {
   const { main } = req.body
   
