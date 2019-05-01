@@ -42,7 +42,7 @@
               <wired-radio-group role="radiogroup" tabindex="0">
                 <wired-radio name="{{mainOne}}" onchange="document.getElementById('main').value = this.name">{{mainOne}}</wired-radio>
                 <wired-radio name="{{mainTwo}}" onchange="document.getElementById('main').value = this.name">{{mainTwo}}</wired-radio>
-                <wired-radio name="{{mainThree}}" onchange="document.getElementById('main').value = this.value">{{mainThree}}</wired-radio>
+                <wired-radio name="{{mainThree}}" onchange="document.getElementById('main').value = this.name">{{mainThree}}</wired-radio>
                 <input type="hidden" id="main" name="main">
               </wired-radio-group>
               <input type="hidden" id="order" name="order" value="{{order._id}}">
