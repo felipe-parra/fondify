@@ -16,7 +16,7 @@
     <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo"><img src="/images/805201_food.svg" alt="Fondify" width="50" /> Fondify</a>
       <ul class="right hide-on-med-and-down">
         {{#if loggedUser}}
-          <li><a href="/user">{{loggedUser.name}}</a></li>
+          <li><a href="/{{loggedUser.role}}">{{loggedUser.name}}</a></li>
           <li><a href="/logout">Logout</a></li>
         {{/if}}
         {{#unless loggedUser}}
