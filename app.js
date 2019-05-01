@@ -10,7 +10,7 @@ const logger       = require('morgan');
 const path         = require('path');
 const passport     = require('./helpers/passport')
 const session      = require('express-session')
-
+const { isLogged } = require('./helpers/middlewares')
 // test
 
 mongoose
@@ -69,7 +69,10 @@ app.locals.title = 'Fondify';
 const index = require('./routes/index');
 const auth = require('./routes/auth')
 const fondas = require('./routes/fonda')
+const user = require('./routes/user')
+
 app.use('/fondas', fondas)
+app.use('/user',isLogged, user)
 app.use('/', auth)
 app.use('/', index);
 
