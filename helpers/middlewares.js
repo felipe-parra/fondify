@@ -4,7 +4,7 @@ exports.isLogged = (req, res, next) => {
 }
 
 exports.checkRole = role => (req, res, next) => {
-  role !== req.user.role ? res.send('Unauthorized') : next()
+  role !== req.user.role ? res.redirect('/') : next()
 }
 
 exports.validateTypeLog = (req,res,next) => {
