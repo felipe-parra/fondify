@@ -1,0 +1,19 @@
+    
+<div class="container">
+  <h1>Dashboard Admin</h1>
+  <div>
+    <ul>
+      {{#each fondas as |fonda|}}
+        <li style="display:block!important">
+          {{fonda.name}} 
+          <a href="/admin/edit/{{fonda._id}}" class="btn halfway-fab blue col s1 m1 offset-m10 offset-s10">
+          <i class="material-icons">edit</i>
+          </a>
+          <a href="/admin/delete/{{fonda._id}}" class="btn halfway-fab red col s1 m1 offset-m10 offset-s10">
+          <i class="material-icons">delete</i>
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>

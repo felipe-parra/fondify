@@ -10,7 +10,7 @@ const menuSchema = [
   mainTwo: 'Milanesa de pollo',
   mainThree: 'Tacos de Pastor',
   drink: 'Agua de Horchata',
-  fonda:'5cc758abd040196f61153b94'
+  fonda:'5cc758abd040196f61153b93'
   },
   {
   name: '2019-04-30',

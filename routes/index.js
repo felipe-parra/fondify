@@ -12,15 +12,38 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/fonda', isLogged , checkRole('fonda'),(req,res,next) => {
-  Fonda.find({user: req.user._id})
+  Fonda.findOne({user: req.user._id})
     .then(fonda => {
+      console.log(fonda+'-- fonda');
       Order.find({fonda: fonda._id}).populate('user').populate('menuUser')
-        .then(order => {
-          res.render('fondas/dashboard', {order,userName: req.user})
+        .then(orders => {
+          console.log(orders + '-- orders');
+          res.render('fondas/dashboard', {orders, userName: req.user.name})
         })
         .catch(err => next(err))
     })
     .catch(err => next(err))
 })
+
+router.get('/admin', (req, res, next) => {
+  Fonda.find().populate('user')
+    .then(fondas => {
+      console.log(fondas);
+      res.render('admin/dashboard', {fondas})
+    })
+    .catch(err => next(err))
+  
+})
+
+router.get('/admin/delete/:id', (req, res, next) => {
+  const { id } = req.params
+  Fonda.findByIdAndDelete(id)
+    .then(fonda => {
+      console.log(`Elmino ALV la fonda ${fonda.name}`);
+      res.redirect('/admin')
+    })
+    .catch(err => next(err))
+})
+
 
 module.exports = router;
