@@ -6,6 +6,18 @@ const MenuUser = require('../models/MenuUser')
 const { isLogged } = require('../helpers/middlewares')
 const moment = require('moment')
 
+router.get('/orders', isLogged ,(req,res,next) => {
+  Fonda.find({user: req.user._id})
+    .then(fonda => {
+      Order.find({fonda: fonda._id}).populate('user').populate('menuUser')
+        .then(order => {
+          res.render('fondas/dashboard', {order,userName: req.user})
+        })
+        .catch(err => next(err))
+    })
+    .catch(err => next(err))
+})
+
 router.get('/admin', (req, res, next) => {
   Fonda.find({user: req.user._id})
     .then(fonda => {
