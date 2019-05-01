@@ -13,15 +13,23 @@
 </head>
 <body>
   <nav class="black" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo"><img src="images/805201_food.svg" alt="Fondify" width="50" /> Fondify</a>
+    <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo"><img src="/images/805201_food.svg" alt="Fondify" width="50" /> Fondify</a>
       <ul class="right hide-on-med-and-down">
-        <li><a class="modal-trigger" href="#modal1">Modal</a></li>
+        {{#if loggedUser}}
+          <li><a href="/user">{{loggedUser.name}}</a></li>
+          <li><a href="/logout">Logout</a></li>
+        {{/if}}
+        {{#unless loggedUser}}
         <li><a href="/signup">Sign up</a></li>
         <li><a href="/login">Login</a></li>
+<<<<<<< HEAD
         {{#if loggedUser}}
         <li><a href="/fondas">Fonda</a></li>
         <li><a href="/user">User</a></li>
         {{/if}}
+=======
+        {{/unless}}
+>>>>>>> alberto
       </ul>
 
       <ul id="nav-mobile" class="sidenav">
@@ -45,30 +53,11 @@
     </div>
   </footer>
 
-  <!--Modal Signup-->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h4>Sign up</h4>
-      <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-  </div>
-
   <script src="https://unpkg.com/wired-elements@latest/dist/wired-elements.bundled.js"></script>
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://materializecss.com/templates/starter-template/js/init.js"></script>
   <script src="/javascripts/script.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-       $(document).ready(function(){
-       $('.modal').modal();
-      });
-    });
-  </script>
-
 
 </body>
 </html>

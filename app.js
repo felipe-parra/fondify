@@ -10,7 +10,7 @@ const logger       = require('morgan');
 const path         = require('path');
 const passport     = require('./helpers/passport')
 const session      = require('express-session')
-const { validateTypeLog, isLogged }  = require('./helpers/middlewares')
+const { isLogged } = require('./helpers/middlewares')
 // test
 
 mongoose
@@ -30,7 +30,7 @@ const app = express();
 app.use(
   session({
     secret: process.env.SECRET,
-    resave: true,
+    resave: false,
     saveUninitialized: false,
     cookie: { maxAge: 1000 * 60 * 60 * 24 }
   })
@@ -71,8 +71,8 @@ const auth = require('./routes/auth')
 const fondas = require('./routes/fonda')
 const user = require('./routes/user')
 
-app.use('/fondas', isLogged,fondas)
-app.use('/user', isLogged,user)
+app.use('/fondas', fondas)
+app.use('/user',isLogged, user)
 app.use('/', auth)
 app.use('/', index);
 

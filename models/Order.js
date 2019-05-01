@@ -8,7 +8,7 @@ const orderSchema = new Schema({
   },
   menuUser: [{
     type: Schema.Types.ObjectId,
-    ref: "menuUser"
+    ref: "MenuUser"
   }],
   arrive: String,
   fonda: {
@@ -19,10 +19,12 @@ const orderSchema = new Schema({
     type: String,
     enum: ['Paypal','Efectivo','TDC']
   },
-  howMany: Number
-},{
-  timestamps:true,
-  versionKey:false
+  howMany: Number,
+  arrive: String
+},
+{
+  timestamps: true,
+  versionKey: false
 })
 
 module.exports = mongoose.model('Order', orderSchema)

@@ -3,24 +3,26 @@
     <div class="row">
       <div class="col s12 m5">
         <h4>{{fonda.name}}</h4>
-        <img src="{{fonda.img}}" alt="{{fonda.name}}" class="materialboxed responsive-img" width="300">    
+        <img src="{{fonda.img}}" alt="{{fonda.name}}" class="responsive-img" width="300">    
         <p>{{fonda.description}}</p>
         <p>{{fonda.phoneNumber}}</p>
         <small>{{fonda.rank}}</small>
         <div id="map" style="width: 650px; height: 400px"></div>
       </div>
       <div class="col s12 m7">
-        <h4>Nuestro menú de hoy: </h4>
+        <h4>Nuestro menú de hoy: {{createdAt}}</h4>
         <div class="card-grid">
           <wired-card elevation="3">
-            <form action="/reservation" method="POST">
-              <h4>{{createdAt}}</h4>
+            <form action="reservation" method="POST">
+              <h4>Persona {{person}}</h4>
 
               <p>Primer tiempo: </p>
               <wired-radio-group role="radiogroup" tabindex="0">
-                <wired-radio name="first-first" class="wired-rendered" role="checkbox" onchange="document.getElementById('first').value = this.value">Consome</wired-radio>
+                <wired-radio name="consome" class="wired-rendered" role="checkbox" onchange="document.getElementById('firstTime').value = this.name">Consome</wired-radio>
 
-                <wired-radio name="first-second" class="wired-rendered" role="checkbox" onchange="document.getElementById('firstTime').value = this.value">Sopa</wired-radio>
+
+                <wired-radio name="sopa" class="wired-rendered" role="checkbox" onchange="document.getElementById('firstTime').value = this.name">Sopa</wired-radio>
+
                 <input type="hidden" id="firstTime" name="firstTime">
               </wired-radio-group>
               
@@ -28,22 +30,26 @@
               <p>Segundo tiempo: </p>
 
               <wired-radio-group role="radiogroup" tabindex="0">
-                <wired-radio name="second-first" class="wired-rendered" role="checkbox" onchange="document.getElementById('secondTime').value = this.value">Arroz</wired-radio>
+                <wired-radio name="arroz" class="wired-rendered" role="checkbox" onchange="document.getElementById('secondTime').value = this.name">Arroz</wired-radio>
 
-                <wired-radio name="second-second" class="wired-rendered" role="checkbox" onchange="document.getElementById('secondTime').value = this.value">Pasta</wired-radio>
+                <wired-radio name="pasta" class="wired-rendered" role="checkbox" onchange="document.getElementById('secondTime').value = this.name">Pasta</wired-radio>
+
                 <input type="hidden" id="secondTime" name="secondTime">
               </wired-radio-group>
 
               <p>Platos fuerte: </p>
 
               <wired-radio-group role="radiogroup" tabindex="0">
-                <wired-radio name="main-one" onchange="document.getElementById('main').value = this.value">{{mainOne}}</wired-radio>
-                <wired-radio name="main-two" onchange="document.getElementById('main').value = this.value">{{mainTwo}}</wired-radio>
-                <wired-radio name="main-three" onchange="document.getElementById('main').value = this.value">{{mainThree}}</wired-radio>
+                <wired-radio name="{{mainOne}}" onchange="document.getElementById('main').value = this.name">{{mainOne}}</wired-radio>
+                <wired-radio name="{{mainTwo}}" onchange="document.getElementById('main').value = this.name">{{mainTwo}}</wired-radio>
+                <wired-radio name="{{mainThree}}" onchange="document.getElementById('main').value = this.value">{{mainThree}}</wired-radio>
                 <input type="hidden" id="main" name="main">
               </wired-radio-group>
+              <input type="hidden" id="order" name="order" value="{{order._id}}">
+              <input type="hidden" id="fonda" name="fonda" value="{{fonda._id}}">
               <br><br>
-              <wired-button class="yellow" onclick="addMenu()">¡Agregar!</wired-button>
+              <wired-button onclick="document.forms[0].submit()" class="color-orange">¡Agregar!</wired-button>
+              <br><br>
             </form>
           </wired-card>
       </div>
@@ -51,21 +57,31 @@
   </div>
 </div>
 
-
-
 {{#unless order}}
 <!--Modal-->
 <div id="modal1" class="modal bottom-sheet">
   <div class="modal-content">
     <form action="new-order" method="POST">
-      <h4>¿Cuántas personas vienen a comer?</h4>
-      <wired-input type="text" name="howMany" onchange="document.getElementById('howMany').value = this.value"></wired-input>
+      <h4>¿Cuántas personas y a qué hora vienen a comer?</h4>
+      <wired-input type="text" placeholder="Cuántas" name="howMany" onchange="document.getElementById('howMany').value = this.value"></wired-input>
       <input type="hidden" id="howMany" name="howMany">
+      <wired-input type="time" placeholder="A qué hora" name="howMany" onchange="document.getElementById('arrive').value = this.value"></wired-input>
+      <input type="hidden" id="arrive" name="arrive">
       <input type="hidden" id="fonda" name="fonda" value={{fonda._id}}>
       <wired-button class="color-orange" onclick="document.forms[1].submit()">¡Ordenemos!</wired-button>
     </form>
   </div>
 </div>
+{{/unless}}
+
+{{#if done}}
+<!--Modal-->
+<div id="modal1" class="modal bottom-sheet">
+  <div class="modal-content">
+    <h4>Has ordenado con éxito hoy en esta fonda. Checa tu orden <a href="/user">aquí</a>.</h4>
+  </div>
+</div>
+{{/if}}
 
 <script>
   window.onload = function() {
@@ -74,5 +90,3 @@
     instance.open();
   }
 </script>
-<!--End modal-->
-{{/unless}}

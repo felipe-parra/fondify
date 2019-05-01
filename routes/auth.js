@@ -71,7 +71,8 @@ router.post('/login', (req, res, next) => {
 })
 
 router.get('/logout', (req, res, next) => {
-  req.logout()
+  req.app.locals.loggedUser = ''
+  req.logOut()
   res.redirect('/')
 })
 
