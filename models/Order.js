@@ -8,7 +8,7 @@ const orderSchema = new Schema({
   },
   menuUser: [{
     type: Schema.Types.ObjectId,
-    ref: "menuUser"
+    ref: "MenuUser"
   }],
   arrive: String,
   fonda: {

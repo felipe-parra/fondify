@@ -6,6 +6,18 @@ const MenuUser = require('../models/MenuUser')
 const { isLogged } = require('../helpers/middlewares')
 const moment = require('moment')
 
+router.get('/admin', (req, res, next) => {
+  Fonda.find({user: req.user._id})
+    .then(fonda => {
+      Order.find({fonda: fonda._id}).populate('user').populate('menuUser')
+        .then(order => {
+          console.log(order)
+        })
+        .catch(err => next(err))
+    })
+
+})
+
 router.post('/', (req, res, next) => {
   const { main } = req.body
   if(!main) return res.redirect('/')
@@ -71,6 +83,7 @@ router.get('/:id', isLogged, async (req, res, next) => {
     }
   }
 })
+
 
 module.exports = router
 
