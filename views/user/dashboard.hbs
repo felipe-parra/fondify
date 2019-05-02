@@ -18,13 +18,15 @@
           <h5 class="center">
           <a href="/fondas/{{order.fonda._id}}">{{order.fonda.name}}</a>
           </h5>
-          <div class="col s10">
+          <div class="col s12">
               <p> <strong>Invitados</strong>   {{order.howMany}}</p>
               <p> <strong>Hora Reservacion</strong>  {{order.arrive}}</p>
           </div>
           <br>
           <h4 >Ordenes</h4>
           <hr>
+          <div class="col s12">
+
               {{#each order.menuUser as |menus|}}
               <div class="col s3">{{menus.firstTime}}</div>
               <div class="col s3">{{menus.secondTime}}</div>
@@ -33,6 +35,7 @@
               <a href="user/delete/menuUser/{{menus._id}}" class="btn btn-floating btn-small red"><i class="material-icons">delete</i></a>
               <br><br><br>
               {{/each}}
+          </div>
           </div>
       {{/each}}
       </div>
