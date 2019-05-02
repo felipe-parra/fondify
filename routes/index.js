@@ -1,26 +1,13 @@
-<<<<<<< HEAD
 const express       = require('express');
 const router        = express.Router();
-const Menu = require('../models/Menu')
 const Fonda = require('../models/Fonda')
 const Order = require('../models/Order')
-const MenuUser = require('../models/MenuUser')
 const { isLogged, checkRole } = require('../helpers/middlewares')
-const moment = require('moment')
-=======
-const express = require('express');
-const router  = express.Router();
-const User = require('../models/User')
-const Fonda = require('../models/Fonda')
-const { isLogged, checkRole } = require('../helpers/middlewares')
-const uploadCloud = require('../helpers/cloudinary')
->>>>>>> alberto
 
 router.get('/', (req, res, next) => {
   res.render('index');
 });
 
-<<<<<<< HEAD
 router.get('/fonda', isLogged , checkRole('fonda'),(req,res,next) => {
   Fonda.findOne({user: req.user._id})
     .then(fonda => {
@@ -54,7 +41,6 @@ router.get('/admin/delete/:id', (req, res, next) => {
 })
 
 
-=======
 router.get('/admin/fonda/new', isLogged, checkRole('admin'), (req, res, next) => {
   User.find()
     .then(users => res.render('admin/new_fonda', { users }))
@@ -67,5 +53,4 @@ router.post('/admin/fonda/new', isLogged, checkRole('admin'), uploadCloud.single
     .catch(err => next(err))
 })
 
->>>>>>> alberto
 module.exports = router;
