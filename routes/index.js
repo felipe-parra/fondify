@@ -18,7 +18,7 @@ router.get('/admin/fonda/new', isLogged, checkRole('admin'), (req, res, next) =>
 
 router.post('/admin/fonda/new', isLogged, checkRole('admin'), uploadCloud.single('img'), (req, res, next) => {
   Fonda.create({...req.body, picPath: req.file.secure_url, picName: req.file.originalname })
-    .then(fonda => res.redirect('/admin/fondas/new'))
+    .then(fonda => res.redirect('/admin'))
     .catch(err => next(err))
 })
 

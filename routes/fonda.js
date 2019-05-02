@@ -3,7 +3,7 @@ const Menu = require('../models/Menu')
 const Fonda = require('../models/Fonda')
 const Order = require('../models/Order')
 const MenuUser = require('../models/MenuUser')
-const { isLogged } = require('../helpers/middlewares')
+const { isLogged, checkRole } = require('../helpers/middlewares')
 const moment = require('moment')
 
 router.get('/admin', (req, res, next) => {
@@ -32,15 +32,15 @@ router.post('/', (req, res, next) => {
     .catch(err => next(err))
 })
 
-router.get('/new-menu', isLogged, (req, res, next) => {
+router.get('/new-menu', isLogged, checkRole('fonda'), (req, res, next) => {
   res.render('fondas/new_menu')
 })
 
-router.post('/new-menu', isLogged, (req, res , next) => {
+router.post('/new-menu', isLogged, checkRole('fonda'),(req, res , next) => {
   Fonda.find({ user: req.user._id })
     .then(fonda => {
       Menu.create({ ...req.body, fonda: fonda[0]._id })
-        .then(menu => res.send(menu))
+        .then(menu => res.redirect('/fonda'))
         .catch(err => next(err))
     })
     .catch(err => next(err))
@@ -54,7 +54,7 @@ router.post('/new-order', isLogged, (req, res, next) => {
     .catch(err => next(err))
 })
 
-router.post('/reservation', (req, res, next) => {
+router.post('/reservation', isLogged, (req, res, next) => {
   const { fonda, order, firstTime, secondTime, main } = req.body
 
   MenuUser.create({ firstTime, secondTime, main })

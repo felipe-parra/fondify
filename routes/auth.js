@@ -63,8 +63,6 @@ router.post('/login', (req, res, next) => {
     req.logIn(user, err => {
       if(err) return next(err)
       req.app.locals.loggedUser = req.user
-      if(user.role === 'admin') res.redirect('/admin')
-      if(user.role === 'fondas') res.redirect('/fondas')
       res.redirect(`/`)
     })
   })(req, res, next)
