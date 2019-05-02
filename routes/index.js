@@ -68,7 +68,7 @@ router.get('/admin/fonda/new', isLogged, checkRole('admin'), (req, res, next) =>
 })
 
 router.post('/admin/fonda/new', isLogged, checkRole('admin'), uploadCloud.single('img'), (req, res, next) => {
-
+  return res.send(req.body)
   const { name, description, user, img} = req.body
   if(!name || !description || !user || !img) return res.redirect(`/admin/fonda/new`)
 
