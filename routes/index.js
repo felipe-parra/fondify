@@ -5,6 +5,7 @@ const Fonda                   = require('../models/Fonda')
 const Order                   = require('../models/Order')
 const { isLogged, checkRole } = require('../helpers/middlewares')
 const MenuUser                = require('../models/MenuUser')
+const User = require('../models/User')
 
 router.get('/', (req, res, next) => {
   res.render('index');
