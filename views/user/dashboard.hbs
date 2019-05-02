@@ -13,7 +13,7 @@
       {{#each orders as |order|}}
       <div class="col s4 offset-s1  z-depth-5">
           <br>
-          <img class="responsive-img col s6" src="{{order.fonda.img}}">
+          <img class="responsive-img col s6" src="{{order.fonda.picPath}}">
           <a href="/user/delete/{{order._id}}" class="btn red col s2 offset-s10"><i class="material-icons">delete</i></a>
           <h5 class="center">
           <a href="/fondas/{{order.fonda._id}}">{{order.fonda.name}}</a>
