@@ -15,13 +15,15 @@ const fondaSchema  = new Schema({
   },
   location: {
     address:{
-    type: String,
-    default: 'Point'
-  },
+      type: String,
+      default: 'Point'
+    },
     coordinates: [Number]
   },
   rfc: String,
   img: String,
+  picPath: String,
+  picName: String,
   phoneNumber: String,
 },
 {
