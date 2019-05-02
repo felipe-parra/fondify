@@ -16,7 +16,7 @@ router.get('/delete/:id', (req,res,next) => {
   const { id } = req.params
   Order.findByIdAndDelete(id)
     .then(() => {
-      res.redirect('/')
+      res.redirect('/user')
     })
     .catch(err => next(err))
 })

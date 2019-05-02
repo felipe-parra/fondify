@@ -36,19 +36,27 @@ router.get('/admin/delete/:id', isLogged,(req, res, next) => {
   const { id } = req.params
   Fonda.findByIdAndDelete(id)
     .then(fonda => {
-      console.log(`Elmino ALV la fonda ${fonda.name}`);
       res.redirect('/admin')
     })
     .catch(err => next(err))
 })
 
-router.get('/admin/delete/menuUser/:id', (req,res,next) => {
+router.get('/user/delete/menuUser/:id', (req,res,next) => {
   const { id } = req.params
   MenuUser.findByIdAndDelete(id)
     .then(menu => {
-      console.log('Se elimino ALV una orden del pedido');
-      res.redirect('/')
+      res.redirect('/user')
     })
+  // Order.findOne({menuUser: id})
+  //   .then(order => {
+  //     res.send(order);
+  //     Order.find({menuUser: id} )
+  //       .then((ordes) => {
+  //         // res.send(ordes)
+  //         console.log(ordes + '----IN');
+  //       })
+  //       .catch(err => next(err))
+  //   })
 })
 
 

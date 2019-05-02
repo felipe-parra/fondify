@@ -11,12 +11,12 @@
       </div>
 
       {{#each orders as |order|}}
-      <div class="col s4 offset-s1 orange z-depth-1">
+      <div class="col s4 offset-s1  z-depth-5">
           <br>
           <img class="responsive-img col s6" src="{{order.fonda.img}}">
           <a href="/user/delete/{{order._id}}" class="btn red col s2 offset-s10"><i class="material-icons">delete</i></a>
           <h5 class="center">
-          {{order.fonda.name}}
+          <a href="/fondas/{{order.fonda._id}}">{{order.fonda.name}}</a>
           </h5>
           <div class="col s10">
               <p> <strong>Invitados</strong>   {{order.howMany}}</p>
@@ -29,7 +29,8 @@
               <div class="col s3">{{menus.firstTime}}</div>
               <div class="col s3">{{menus.secondTime}}</div>
               <div class="col s3">{{menus.main}}</div>
-              <a href="admin/delete/menuUser/{{menus._id}}" class="btn btn-floating btn-small red"><i class="material-icons">delete</i></a>
+              
+              <a href="user/delete/menuUser/{{menus._id}}" class="btn btn-floating btn-small red"><i class="material-icons">delete</i></a>
               <br><br><br>
               {{/each}}
           </div>

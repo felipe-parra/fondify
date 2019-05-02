@@ -1,28 +1,41 @@
 <div class="container row">
-<h1>Hi, {{userName}}</h1>
+<h4 class="center">Hola, {{userName}}</h4>
   <div class="col s12 m12">
-    <div class="card">
-    <div class="card-content">
+    {{#unless orders}}
+      <h3 class="red-text center">No tienes reservaciones :´(</h3>
+    {{/unless}}
+    <div class="col s10 offset-s1">
+   <table class="highlight">
+        <thead>
+          <tr>
+            <th>#Orden</th>
+            <th>Hora Reservacion</th>
+            <th>Cliente</th>
+            <th>Primer Tiempo</th>
+            <th>Segundo Tiempo</th>
+            <th>Plato Fuerte</th>
 
-      <div class="container ">
-        {{#unless orders}}
-          <h3 class="red-text">No tienes reservaciones</h3>
-        {{/unless}}
-      </div>
-      <div class="collection">
-        <ul>
+          </tr>
+        </thead>
+        <tbody>
           {{#each orders as |order|}}
-            <p>Nombre: {{order.user.name}}</p>
-            <p>Personas: {{order.howMany}}, Hora Reservacion: {{order.arrive}} </p>
-            <p></p>
-        </ul>
-              {{#each order.menuUser as |menus|}}
-                <p>{{menus.firstTime}}</p>
-                <p>{{menus.secondTime}}</p>
-                <p>{{menus.main}}</p>
-              {{/each}}
-      </div>
-          {{/each}}
+          {{!-- <tr>
+            <td>{{order.howMany}}</td>
+            <td>{{order.arrive}}</td>
+          </tr> --}}
+      {{#each order.menuUser as |menus|}}
+          <tr>
+            <td id="orden">{{order._id}}</td>
+            <td>{{order.arrive}}</td>
+            <td>{{order.user.name}}</td>
+          <td>{{menus.firstTime}}</td>
+          <td>{{menus.secondTime}}</td>
+          <td>{{menus.main}}</td>
+          </tr>
+        {{/each}}
+        {{/each}}
+        </tbody>
+      </table>
+    </div>
     </div>
   </div>
-</div>
