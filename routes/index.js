@@ -11,12 +11,16 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/admin/fonda/new', isLogged, checkRole('admin'), (req, res, next) => {
-  User.find()
+  User.find({role: 'fonda'})
     .then(users => res.render('admin/new_fonda', { users }))
     .catch(err => next(err))
 })
 
 router.post('/admin/fonda/new', isLogged, checkRole('admin'), uploadCloud.single('img'), (req, res, next) => {
+
+  const { name, description, user, img} = req.body
+  if(!name || !description || !user || !img) return res.redirect(`/admin/fonda/new`)
+
   Fonda.create({...req.body, picPath: req.file.secure_url, picName: req.file.originalname })
     .then(fonda => res.redirect('/admin'))
     .catch(err => next(err))
