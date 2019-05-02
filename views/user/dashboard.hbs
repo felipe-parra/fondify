@@ -4,16 +4,16 @@
           Hi, {{userName}}.
         </h4><div class="center">Bienvenido a tus ordenes</div>
       </div>
-      <div>
+      <div class="">
         {{#unless orders}}
-          <h3 class="red-text">No tienes reservaciones</h3>
+          <h3 class="red-text card center">No tienes reservaciones</h3>
         {{/unless}}
       </div>
 
       {{#each orders as |order|}}
       <div class="col s4 offset-s1 orange z-depth-1">
           <br>
-          <img class="circle responsive-img col s6" src="{{order.fonda.img}}">
+          <img class="responsive-img col s6" src="{{order.fonda.img}}">
           <a href="/user/delete/{{order._id}}" class="btn red col s2 offset-s10"><i class="material-icons">delete</i></a>
           <h5 class="center">
           {{order.fonda.name}}
