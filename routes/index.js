@@ -14,10 +14,8 @@ router.get('/', (req, res, next) => {
 router.get('/fonda', isLogged , checkRole('fonda'),(req,res,next) => {
   Fonda.findOne({user: req.user._id})
     .then(fonda => {
-      console.log(fonda+'-- fonda');
       Order.find({fonda: fonda._id}).populate('user').populate('menuUser')
         .then(orders => {
-          console.log(orders + '-- orders');
           res.render('fondas/dashboard', {orders, userName: req.user.name})
         })
         .catch(err => next(err))
