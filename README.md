@@ -1,5 +1,6 @@
 # Fondify
 ![alt text](https://i.imgur.com/epu36B6.png)
+
 La forma mas facil de conectarte con la cocina local de tu area.
 
 ## Getting Started
